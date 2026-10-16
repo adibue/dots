@@ -15,11 +15,11 @@ function install_packages
     header_banner "Installing common packages"
     if command -v apt >/dev/null 2>&1
         # Debian, Ubuntu and derivatives
-        set -l packages bat direnv enchant-2 eza fd-find fzf git git-delta less libnotify-bin most nuspell ripgrep
+        set -l packages bat direnv enchant-2 eza fd-find git git-delta less libnotify-bin most nuspell ripgrep
         sudo apt install $packages
     else if command -v pacman >/dev/null 2>&1
         # Arch Linux and derivatives
-        set -l packages bat direnv enchant eza fd fzf git git-delta less libnotify moor nuspell ripgrep uv
+        set -l packages bat direnv enchant eza fd git git-delta less libnotify moor nuspell ripgrep uv
         sudo pacman -Syu --needed $packages
     else if command -v dnf >/dev/null 2>&1
         # Fedora and other RPM-based distros
@@ -35,12 +35,6 @@ function setup_fish_vendor
     # fish plugins I use are included verbatim in .config/fish/vendor
     # they must be copied to .config/fish to become usable
     header_banner "Setting up fish vendored plugins"
-
-    # disable fzf plugin on slow systems
-    if test "$disable_fzf" = true
-        echo "Disabling fzf-fish plugin"
-        rm -rf $HOME/.config/fish/conf.d/fzf.fish $HOME/.config/fish/vendor/fzf-fish
-    end
 
     set vendor_src $HOME/.config/fish/vendor
     set vendor_tgt $HOME/.config/fish/

@@ -1,74 +1,58 @@
-Fidel's dotfiles
-================
+# adibue's dotfiles
 
-This is my personal set up of configuration files.
+This is my personal set up of configuration files, inspired by and originally forged from [haplo/dotfiles](https://github.com/haplo/dotfiles).
 
-I use Arch Linux in desktop and Debian GNU/Linux in servers so they are particularly tailored for these OSes.
-My main shell is [fish](https://fishshell.com/), it's set as default.
+My main driver is macOS, with [CachyOS](https://github.com/cachyos) for gaming and [Debian](https://github.com/debian)oids for almost everything else.
 
-Feel free to fork the repository, adapt it to your needs, or just to
-copy whatever you like.
-**Use at your own risk!**
+Thanks to Cachy's defaults, I got quite fond of _fish_, so I recently switched to this incredibly easy and performant interactive shell 🚀.
+However, scripts will still be written in `BASH` (or `ZSH`, if macOS is the only target platform).
 
-Any ideas or suggestions? I would love to
-[hear about them](https://github.com/haplo/dotfiles/issues),
-I'm always up for improving my setup.
+Feel free to fork the repository, adapt it to your needs, or just copy whatever you like.
 
-Dependencies
-------------
+But... **Use at your own risk!**
 
-- [yadm](https://yadm.io/)
-- [fish shell](https://fishshell.com/)
-- [fzf](https://github.com/junegunn/fzf)
-- [bat](https://github.com/sharkdp/bat)
+## Dependencies
+
+- [yadm](https://github.com/yadm-dev/yadm)
 - [eza](https://github.com/eza-community/eza)
-- [fd](https://github.com/sharkdp/fd)
-- [delta](https://github.com/dandavison/delta)
+- Optional, but recommended: [fish shell](https://github.com/fish-shell/fish-shell)
 
-Installation
-------------
+## Installation
 
-First [install yadm](https://yadm.io/docs/install).
-It's available in Arch Linux, Debian and many other distros.
-And if not packaged, in the end it's just a single shell script, you can just download it and put it in `PATH`.
-This simplicity is one reason why I chose *yadm* over other tools.
+First, [install](https://yadm.io/docs/install) _yadm_, a simple dotfiles manager available for virtually every distro on the planet.
 
-With *yadm* in hand use this to clone this repository, install the files into `$HOME` and run the [bootstrap script](.config/yadm/bootstrap):
+Yours isn't on the list? No biggie, as in the end it's just a single shell script.
+Just download it and put it in your `PATH`.
 
-    $ yadm clone --bootstrap -f https://github.com/haplo/dotfiles.git
+It's _**simple**_. That's why it's _**great**_!
 
-Updating
---------
+Once _yadm_ is up and ready, use it to clone this repo, install the files into `$HOME` and run the [bootstrap script](.config/yadm/bootstrap):
 
-    $ yadm pull
+```shell
+yadm clone --bootstrap -f https://github.com/adibue/dots.git
+```
 
-Fish plugins
-------------
+## Updating
+
+```shell
+yadm pull
+```
+
+## Fish plugins
 
 I try to minimize the amount of plugins I use, but the ones I do use I decided to vendor, i.e. include in full in this repository.
 This allows me to control the source code precisely, review updates manually and not to depend on an unverified external download whenever I install the dotfiles.
 
 The vendored plugins are in [.config/fish/vendor/](.config/fish/vendor/).
 
-To update the vendored plugins to their latest versions, in a *fish* shell:
-
-    $ update-fish-vendored-plugins
-
-Disabling fzf
--------------
-
-*fzf* can be slow in some systems, to disable its *fish* integration set a universal
-variable:
+To update the vendored plugins to their latest versions, in a _fish_ shell:
 
 ```fish
-set -U disable_fzf true
+update-fish-vendored-plugins
 ```
 
-Then running `yadm bootstrap` will not install the *fzf-fish* plugin.
+## Thanks and inspiration
 
-Thanks and inspiration
-----------------------
-
-* The original version of this repository was based on [Mathias Bynens'
-  dotfiles](https://github.com/mathiasbynens/dotfiles).
-  I also copied many a useful thing from his files, so thanks to him and to people on his thanks list.
+- The original version of this repository was based on [Fidel Ramos'
+  dotfiles](https://github.com/haplo/dotfiles).
+  Thanks to Fidel for sharing and writing an excellent guide about this and on how to [migrate over to fish](https://blog.fidelramos.net/software/fish-shell) ❤️
